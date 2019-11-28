@@ -1,0 +1,10 @@
+.postBlock {
+    padding: 10px;
+}
+
+.addPost {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+
+}

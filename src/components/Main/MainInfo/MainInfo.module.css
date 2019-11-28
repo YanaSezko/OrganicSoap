@@ -1,0 +1,14 @@
+.banner img {
+    width: 100%;
+    height: 600px;
+    position: relative;
+}
+
+h1 {
+    padding: 10px;
+    color: #3B4B54;
+    font-weight: lighter;
+    position: absolute;
+    top: 30%;
+    left: 35%;
+}

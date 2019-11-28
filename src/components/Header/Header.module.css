@@ -1,0 +1,11 @@
+.header{
+  grid-area: h;
+  border-bottom: 4px solid #D99F3D;
+}
+
+h2{
+  color: #D99F3D;
+  margin:10px 10px 0;
+  font-weight: normal;
+  letter-spacing: -2px;
+}
