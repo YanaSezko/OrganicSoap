@@ -4,10 +4,11 @@ import s from './Main.module.css';
 import MyPosts from './MyPosts/MyPosts';
 import MainInfo from "./MainInfo/MainInfo";
 
-const Main = () => {
+const Main = (props) => {
+
     return <main>
         <MainInfo/>
-        <MyPosts/>
+        <MyPosts posts={props.posts}/>
     </main>
 }
 
