@@ -4,22 +4,18 @@ import Header from './components/Header/Header';
 import Navbar from './components/Navbar/Navbar';
 import Main from './components/Main/Main';
 import Dialogs from "./components/Dialogs/Dialogs";
-import {BrowserRouter, Route} from "react-router-dom";
-//import banner from 'banner.jpg';
-
+import {Route} from "react-router-dom";
 
 const App = (props) => {
     return (
-        <BrowserRouter>
-            <div className="app-wrapper">
-                <Header/>
-                <Navbar/>
-                <div className="app-wrapper-content">
-                    <Route path='/main' render={()=><Main posts={props.posts}/>}/>
-                    <Route path='/dialogs' render={()=><Dialogs dialogs={props.dialogs} messages={props.messages}/>}/>
-                </div>
+        <div className="app-wrapper">
+            <Header/>
+            <Navbar/>
+            <div className="app-wrapper-content">
+                <Route path='/main' render={() => <Main state={props.state.mainPage}/>}/>
+                <Route path='/dialogs' render={() => <Dialogs state={props.state.dialogsPage}/>}/>
             </div>
-        </BrowserRouter>
+        </div>
     );
 }
 

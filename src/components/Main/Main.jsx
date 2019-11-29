@@ -8,7 +8,7 @@ const Main = (props) => {
 
     return <main>
         <MainInfo/>
-        <MyPosts posts={props.posts}/>
+        <MyPosts posts={props.state.posts}/>
     </main>
 }
 
