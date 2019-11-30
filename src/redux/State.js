@@ -1,3 +1,8 @@
+let rerenderEntireTree=()=>{
+    console.log('State chenged');
+}
+
+
 let state = {
     dialogsPage: {
         messages: [
@@ -18,8 +23,30 @@ let state = {
         posts: [
             {id: 1, message: 'это мой первый пост', likesCount: 20},
             {id: 2, message: 'это мой второй пост', likesCount: 33}
-        ]
+        ],
+        newPostText:'natural-soap'
     }
+}
+
+export const addPost = (postMess) => {
+       let newPost = {
+        id:3,
+        message:postMess,
+        likesCount:0
+    };
+    state.mainPage.posts.push(newPost);
+    rerenderEntireTree(state);
+
+}
+
+export const updateNewPostText = (newText) => {
+    state.mainPage.newPostText=newText;
+    rerenderEntireTree(state);
+
+}
+
+export const subscribe=(observer)=>{
+rerenderEntireTree=observer;
 }
 
 export default state;

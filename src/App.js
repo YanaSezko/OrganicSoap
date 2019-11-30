@@ -7,12 +7,13 @@ import Dialogs from "./components/Dialogs/Dialogs";
 import {Route} from "react-router-dom";
 
 const App = (props) => {
-    return (
+     return (
         <div className="app-wrapper">
             <Header/>
             <Navbar/>
             <div className="app-wrapper-content">
-                <Route path='/main' render={() => <Main state={props.state.mainPage}/>}/>
+                <Route path='/main' render={() => <Main mainPage={props.state.mainPage} addPost={props.addPost}
+                                                        updateNewPostText={props.updateNewPostText}/>}/>
                 <Route path='/dialogs' render={() => <Dialogs state={props.state.dialogsPage}/>}/>
             </div>
         </div>

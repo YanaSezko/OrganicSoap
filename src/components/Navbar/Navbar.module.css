@@ -4,12 +4,20 @@
   background-color: #C4B4AB;
 }
 .item a{
+  font-size: 18px;
   color: rgb(255, 255, 255);
   text-decoration: none;
+  display: block;
+  padding: 20px 40px;
+}
+.item a:hover{
+  background: #D99F3D;
 }
 .item a.active {
   color: #3B4B54;
+  background: #D99F3D;
 }
 ul {
   list-style: none;
+  padding: 0;
 }
