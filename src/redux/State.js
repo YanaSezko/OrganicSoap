@@ -1,3 +1,7 @@
+const ADD_POST = 'ADD-POST';
+const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
+
+
 let store = {
     _state: {
         dialogsPage: {
@@ -42,6 +46,7 @@ let store = {
                 likesCount: 0
             };
             this._state.mainPage.posts.push(newPost);
+            this._state.mainPage.newPostText = '';
             this._callSubscriber(this._state);
         } else if (action.type === 'UPDATE-NEW-POST-TEXT') {
             this._state.mainPage.newPostText = action.newText;
@@ -49,6 +54,12 @@ let store = {
         }
     }
 }
+
+
+export const addPostActionCreator = () => ({type: ADD_POST})
+export const updateNewPostTextActionCreator = (text) =>
+    ({type: UPDATE_NEW_POST_TEXT, newText: text})
+
 
 export default store;
 window.store = store;
