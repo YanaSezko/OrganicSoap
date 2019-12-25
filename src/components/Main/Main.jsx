@@ -1,7 +1,7 @@
 import React from 'react';
 import MyPosts from './MyPosts/MyPosts';
 import MainInfo from "./MainInfo/MainInfo";
-import mainPage from "../../redux/State";
+import mainPage from "../../redux/Store";
 
 const Main = (props) => {
 
