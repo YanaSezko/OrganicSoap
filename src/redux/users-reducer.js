@@ -4,11 +4,7 @@ const SET_USERS = 'SET_USERS';
 
 
 let initialState = {
-    users: [
-       {id: 1, photoUrl:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSdYN-orY9gPbnHdgReKvhS5kiG8_dF76IOGfmN0czJ56zUAVCrow&spnj', followed: false, fullName: 'Yana', status: 'life is good', location: {city: 'kiev', country: 'Ukraine'}},
-        {id: 2, photoUrl:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSdYN-orY9gPbnHdgReKvhS5kiG8_dF76IOGfmN0czJ56zUAVCrow&spnj', followed: true, fullName: 'Vasya', status: 'hello', location: {city: 'moscow', country: 'Russia'}},
-        {id: 3, photoUrl:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSdYN-orY9gPbnHdgReKvhS5kiG8_dF76IOGfmN0czJ56zUAVCrow&spnj', followed: false, fullName: 'Vova', status: 'hi', location: {city: 'minsk', country: 'Belarus'}},
-   ]
+    users: []
 };
 
 const usersReducer = (state = initialState, action) => {
