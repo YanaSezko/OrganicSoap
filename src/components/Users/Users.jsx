@@ -1,41 +1,22 @@
 import React from 'react';
-import styles from "./users.module.css"
+import styles from "./users.module.css";
+import * as axios from 'axios';
+import userPhoto from "../../images/panda1.png";
 
 let Users = (props) => {
     if (props.users.length === 0) {
-        props.setUsers([
-                {
-                    id: 1,
-                    photoUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSdYN-orY9gPbnHdgReKvhS5kiG8_dF76IOGfmN0czJ56zUAVCrow&spnj',
-                    followed: false,
-                    fullName: 'Yana',
-                    status: 'life is good',
-                    location: {city: 'kiev', country: 'Ukraine'}
-                },
-                {
-                    id: 2,
-                    photoUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSdYN-orY9gPbnHdgReKvhS5kiG8_dF76IOGfmN0czJ56zUAVCrow&spnj',
-                    followed: true,
-                    fullName: 'Vasya',
-                    status: 'hello',
-                    location: {city: 'moscow', country: 'Russia'}
-                },
-                {
-                    id: 3,
-                    photoUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSdYN-orY9gPbnHdgReKvhS5kiG8_dF76IOGfmN0czJ56zUAVCrow&spnj',
-                    followed: false,
-                    fullName: 'Vova',
-                    status: 'hi',
-                    location: {city: 'minsk', country: 'Belarus'}
-                }
-            ]
-        )
+        axios.get("https://social-network.samuraijs.com/api/1.0/users").then(response => {
+            props.setUsers(response.data.items);
+
+        });
+
     }
     return <>
         {
             props.users.map(u => <div key={u.id}>
                 <div>
-                    <div><img className={styles.photo} src={u.photoUrl} alt="avatar"/></div>
+                    <div><img className={styles.photo} src={u.photos.small != null ? u.photos.small : userPhoto}
+                              alt="avatar"/></div>
                     <div>
                         {u.followed
                             ? <button onClick={() => {
@@ -49,12 +30,12 @@ let Users = (props) => {
                 </div>
                 <div>
                     <div>
-                        <div>{u.fullName}</div>
+                        <div>{u.name}</div>
                         <div>{u.status}</div>
                     </div>
                     <div>
-                        <div>{u.location.country}</div>
-                        <div>{u.location.city}</div>
+                        <div>{"u.location.country"}</div>
+                        <div>{"u.location.city"}</div>
                     </div>
 
                 </div>
