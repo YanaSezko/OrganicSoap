@@ -4,3 +4,12 @@
     border-radius: 50%;
     margin: 20px;
 }
+span{
+    color: #3B4B54;
+    padding:  10px;
+
+}
+.selectedPage {
+    font-weight: bold;
+    color: #D99F3D;
+}
