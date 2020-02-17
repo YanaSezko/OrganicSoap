@@ -14,7 +14,7 @@ let Users = (props) => {
     return <>
         <div>
             {pages.map(p => {
-                return <span className={props.currentPage === p && styles.selectedPage}
+                return <span className = {props.currentPage === p && styles.selectedPage}
                              onClick={(e) => {
                                  props.onPageChanged(p);
                              }}>{p}</span>
@@ -22,7 +22,7 @@ let Users = (props) => {
         </div>
         {props.users.map(u => <div key={u.id}>
             <div>
-                <div><img className={styles.photo} src={u.photos.small != null ? u.photos.small : userPhoto}
+                <div><img className = {styles.photo} src={u.photos.small != null ? u.photos.small : userPhoto}
                           alt="avatar"/></div>
                 <div>
                     {u.followed
