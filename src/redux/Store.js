@@ -1,4 +1,4 @@
-import mainReducer from "./main-reducer";
+import profileReducer from "./profile-reducer";
 import dialogsReducer from "./dialogs-reducer";
 
 let store = {
@@ -18,7 +18,7 @@ let store = {
             ],
             newMessageBody:""
         },
-        mainPage: {
+        profilePage: {
             posts: [
                 {id: 1, message: 'это мой первый пост', likesCount: 20},
                 {id: 2, message: 'это мой второй пост', likesCount: 33}
@@ -38,7 +38,7 @@ let store = {
     },
 
     dispatch(action) {
-        this._state.mainPage= mainReducer(this._state.mainPage, action);
+        this._state.profilePage= profileReducer(this._state.profilePage, action);
         this._state.dialogsPage = dialogsReducer(this._state.dialogsPage, action);
 
         this._callSubscriber(this._state);

@@ -1,15 +1,17 @@
 const ADD_POST = 'ADD-POST';
 const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
+const SET_MAIN_PROFILE = 'SET_MAIN_PROFILE';
 
 let initialState = {
     posts: [
         {id: 1, message: 'это мой первый пост', likesCount: 20},
         {id: 2, message: 'это мой второй пост', likesCount: 33}
     ],
-    newPostText: 'natural-soap'
+    newPostText: 'natural-soap',
+    profile:null
 };
 
-const mainReducer = (state = initialState, action) => {
+const profileReducer = (state = initialState, action) => {
     switch (action.type) {
         case 'ADD-POST': {
             let newPost = {
@@ -29,13 +31,20 @@ const mainReducer = (state = initialState, action) => {
                newPostText: action.newText
            };
         }
+        case 'SET_MAIN_PROFILE': {
+           return  {
+               ...state,
+               profile: action.profile
+           };
+        }
         default:
             return state;
     }
 }
 
 export const addPostActionCreator = () => ({type: ADD_POST})
+export const setMainProfile = (profile) => ({type: SET_MAIN_PROFILE, profile })
 export const updateNewPostTextActionCreator = (text) =>
     ({type: UPDATE_NEW_POST_TEXT, newText: text})
 
-export default mainReducer;
+export default profileReducer;
