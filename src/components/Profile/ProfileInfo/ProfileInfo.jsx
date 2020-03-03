@@ -12,7 +12,13 @@ const ProfileInfo = (props) => {
             <img src={banner} alt={"banner"}/>
         </div>
         <h1>100% Natural Soap</h1>
+        <div>
+            <img src={props.profile.photos.small}/>
+            ava+description
+        </div>
+
     </>
+
 }
 
 

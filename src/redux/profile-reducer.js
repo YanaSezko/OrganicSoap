@@ -1,6 +1,6 @@
 const ADD_POST = 'ADD-POST';
 const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
-const SET_MAIN_PROFILE = 'SET_MAIN_PROFILE';
+const SET_USER_PROFILE = 'SET_USER_PROFILE';
 
 let initialState = {
     posts: [
@@ -8,7 +8,7 @@ let initialState = {
         {id: 2, message: 'это мой второй пост', likesCount: 33}
     ],
     newPostText: 'natural-soap',
-    profile:null
+    profile: null
 };
 
 const profileReducer = (state = initialState, action) => {
@@ -31,7 +31,7 @@ const profileReducer = (state = initialState, action) => {
                newPostText: action.newText
            };
         }
-        case 'SET_MAIN_PROFILE': {
+        case 'SET_USER_PROFILE': {
            return  {
                ...state,
                profile: action.profile
@@ -43,7 +43,7 @@ const profileReducer = (state = initialState, action) => {
 }
 
 export const addPostActionCreator = () => ({type: ADD_POST})
-export const setMainProfile = (profile) => ({type: SET_MAIN_PROFILE, profile })
+export const setUserProfile = (profile) => ({type: SET_USER_PROFILE, profile })
 export const updateNewPostTextActionCreator = (text) =>
     ({type: UPDATE_NEW_POST_TEXT, newText: text})
 

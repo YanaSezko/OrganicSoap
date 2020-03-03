@@ -23,7 +23,8 @@ let store = {
                 {id: 1, message: 'это мой первый пост', likesCount: 20},
                 {id: 2, message: 'это мой второй пост', likesCount: 33}
             ],
-            newPostText: 'natural-soap'
+            newPostText: 'natural-soap',
+
         }
     },
     _callSubscriber() {
