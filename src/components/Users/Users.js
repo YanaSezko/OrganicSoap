@@ -2,6 +2,7 @@ import React from 'react';
 import styles from "./users.module.css";
 import userPhoto from "../../images/panda1.png";
 import {NavLink} from "react-router-dom";
+import * as axios from "axios";
 
 
 let Users = (props) => {
@@ -16,7 +17,7 @@ let Users = (props) => {
     return <>
         <div>
             {pages.map(p => {
-                return <span className = {props.currentPage === p && styles.selectedPage}
+                return <span className={props.currentPage === p && styles.selectedPage}
                              onClick={(e) => {
                                  props.onPageChanged(p);
                              }}>{p}</span>
@@ -25,18 +26,48 @@ let Users = (props) => {
         {props.users.map(u => <div key={u.id}>
             <div>
                 <div>
-                    <NavLink to = {'/profile/' + u.id}>
-                    <img className = {styles.photo} src={u.photos.small != null ? u.photos.small : userPhoto}
-                          alt="avatar"/>
+                    <NavLink to={'/profile/' + u.id}>
+                        <img className={styles.photo} src={u.photos.small != null ? u.photos.small : userPhoto}
+                             alt="avatar"/>
                     </NavLink>
                 </div>
                 <div>
                     {u.followed
                         ? <button onClick={() => {
-                            props.unfollow(u.id)
+
+                            axios.delete(/*'https://cors-anywhere.herokuapp.com/' + */`https://social-network.samuraijs.com/api/1.0/follow/${u.id}`, {
+                                withCredentials: true,
+                                headers: {
+                                    "API-KEY": "7c46e99c-cc61-49d3-b479-09c0057c7423"
+                                }
+                            })
+                                .then(response => {
+                                    if (response.data.resultCode == 0) {
+
+                                        props.unfollow(u.id);
+                                    }
+
+                                });
+
+
                         }}>UnFollow</button>
                         : <button onClick={() => {
-                            props.follow(u.id)
+
+                            axios.post(/*'https://cors-anywhere.herokuapp.com/' + */`https://social-network.samuraijs.com/api/1.0/follow/${u.id}`, {}, {
+                                withCredentials: true,
+                                headers: {
+                                    "API-KEY": "7c46e99c-cc61-49d3-b479-09c0057c7423"
+                                }
+                            })
+                                .then(response => {
+                                    if (response.data.resultCode == 0) {
+
+                                        props.follow(u.id);
+                                    }
+
+                                });
+
+
                         }}>Follow</button>
                     }
                 </div>
