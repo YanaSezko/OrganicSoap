@@ -3,6 +3,7 @@ import styles from "./users.module.css";
 import userPhoto from "../../images/panda1.png";
 import {NavLink} from "react-router-dom";
 import * as axios from "axios";
+import {toggleFollowingProgress} from "../../redux/users-reducer";
 
 
 let Users = (props) => {
@@ -33,7 +34,8 @@ let Users = (props) => {
                 </div>
                 <div>
                     {u.followed
-                        ? <button onClick={() => {
+                        ? <button disabled={props.followingInProgress.some(id => id === u.id)} onClick={() => {
+                            props.toggleFollowingProgress(true,u.id);
 
                             axios.delete(/*'https://cors-anywhere.herokuapp.com/' + */`https://social-network.samuraijs.com/api/1.0/follow/${u.id}`, {
                                 withCredentials: true,
@@ -46,13 +48,14 @@ let Users = (props) => {
 
                                         props.unfollow(u.id);
                                     }
+                                    props.toggleFollowingProgress(false, u.id);
 
                                 });
 
 
                         }}>UnFollow</button>
-                        : <button onClick={() => {
-
+                        : <button disabled={props.followingInProgress.some(id => id === u.id)} onClick={() => {
+                            props.toggleFollowingProgress(true,u.id);
                             axios.post(/*'https://cors-anywhere.herokuapp.com/' + */`https://social-network.samuraijs.com/api/1.0/follow/${u.id}`, {}, {
                                 withCredentials: true,
                                 headers: {
@@ -64,7 +67,7 @@ let Users = (props) => {
 
                                         props.follow(u.id);
                                     }
-
+                                    props.toggleFollowingProgress(false,u.id);
                                 });
 
 
