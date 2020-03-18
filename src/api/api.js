@@ -15,5 +15,13 @@ export const usersAPI = {
             .then(response => {
                 return response.data;
             });
+    },
+    follow(userId) {
+
+        return instance.post(/*'https://cors-anywhere.herokuapp.com/' + */`https://social-network.samuraijs.com/api/1.0/follow/${userId}` )
+    },
+    unfollow(userId) {
+        return instance.delete(/*'https://cors-anywhere.herokuapp.com/' + */`https://social-network.samuraijs.com/api/1.0/follow/${userId}`)
     }
+
 }
