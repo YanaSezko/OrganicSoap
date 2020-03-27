@@ -18,10 +18,19 @@ export const usersAPI = {
     },
     follow(userId) {
 
-        return instance.post(/*'https://cors-anywhere.herokuapp.com/' + */`https://social-network.samuraijs.com/api/1.0/follow/${userId}` )
+        return instance.post(/*'https://cors-anywhere.herokuapp.com/' + */`follow/${userId}` )
     },
     unfollow(userId) {
-        return instance.delete(/*'https://cors-anywhere.herokuapp.com/' + */`https://social-network.samuraijs.com/api/1.0/follow/${userId}`)
+        return instance.delete(/*'https://cors-anywhere.herokuapp.com/' + */`follow/${userId}`)
+    },
+    getProfile(userId){
+        return instance.get(/*'https://cors-anywhere.herokuapp.com/' + */ `profile/` + userId);
     }
 
+}
+
+export const authAPI = {
+    me(){
+return  instance.get(/*'https://cors-anywhere.herokuapp.com/' + */`auth/me`)
+    }
 }
