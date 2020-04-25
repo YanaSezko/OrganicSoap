@@ -1,7 +1,8 @@
 import React from 'react';
-import banner from '../../../images/banner.jpg';
+import banner from './../../../images/banner.jpg';
 import s from './ProfileInfo.module.css';
 import Preloader from "../../common/Preloader/Preloader";
+import ProfileStatus from './ProfileStatus';
 
 const ProfileInfo = (props) => {
     if(!props.profile){
@@ -14,7 +15,7 @@ const ProfileInfo = (props) => {
         <h1>100% Natural Soap</h1>
         <div>
             <img src={props.profile.photos.small}/>
-            ava+description
+            <ProfileStatus status={"Hello my friends!"}/>
         </div>
 
     </>
