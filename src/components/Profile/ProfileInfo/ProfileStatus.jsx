@@ -6,7 +6,8 @@ state={
     editMode:false
 }
 
-activateEditMode(){
+activateEditMode = () => {
+    console.log("this:",this);
     this.setState({
         editMode:true
     }); 
@@ -21,7 +22,7 @@ render(){
     return (
         <div>
             {!this.state.editMode &&
-                <div><span onDoubleClick={this.activateEditMode.bind(this)}>{this.props.status}</span></div>
+                <div><span onDoubleClick={this.activateEditMode}>{this.props.status}</span></div>
             }
             {this.state.editMode &&
                 <div><input autoFocus={true} onBlur={this.deActivateEditMode.bind(this)} value={this.props.status} /></div>
