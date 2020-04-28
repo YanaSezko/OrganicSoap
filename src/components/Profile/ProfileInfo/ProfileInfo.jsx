@@ -1,8 +1,9 @@
 import React from 'react';
-import banner from './../../../images/banner.jpg';
 import s from './ProfileInfo.module.css';
+import banner from './../../../images/banner.jpg';
 import Preloader from "../../common/Preloader/Preloader";
 import ProfileStatus from './ProfileStatus';
+
 
 const ProfileInfo = (props) => {
     if(!props.profile){
@@ -10,12 +11,12 @@ const ProfileInfo = (props) => {
     }
     return <>
         <div className={s.banner}>
-            <img src={banner} alt={"banner"}/>
+            <img width='100%' src={banner} alt={"banner"}/>
         </div>
         <h1>100% Natural Soap</h1>
         <div>
             <img src={props.profile.photos.small}/>
-            <ProfileStatus status={"Hello my friends!"}/>
+            <ProfileStatus status={props.status} updateStatus={props.updateStatus}/>
         </div>
 
     </>

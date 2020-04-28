@@ -24,7 +24,21 @@ export const usersAPI = {
         return instance.delete(/*'https://cors-anywhere.herokuapp.com/' + */`follow/${userId}`)
     },
     getProfile(userId){
+        console.warn('Obsolete method. Please profileAPI object.')
+        return profileAPI.getProfile(userId);
+    }
+
+}
+
+export const profileAPI = {
+    getProfile(userId){
         return instance.get(/*'https://cors-anywhere.herokuapp.com/' + */ `profile/` + userId);
+    },
+    getStatus(userId){
+        return instance.get(/*'https://cors-anywhere.herokuapp.com/' + */ `profile/status/` + userId);
+    },
+    updateStatus(status){
+        return instance.put(/*'https://cors-anywhere.herokuapp.com/' + */ `profile/status`,{status:status});
     }
 
 }
