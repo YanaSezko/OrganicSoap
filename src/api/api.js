@@ -45,6 +45,12 @@ export const profileAPI = {
 
 export const authAPI = {
     me(){
-return  instance.get(/*'https://cors-anywhere.herokuapp.com/' + */`auth/me`)
-    }
+return  instance.get(/*'https://cors-anywhere.herokuapp.com/' + */`auth/me`);
+    },
+    login(email,password,rememberMe=false){
+return   instance.post(/*'https://cors-anywhere.herokuapp.com/' + */`auth/login`,{email,password,rememberMe});      
+    },
+    logout(){
+        return   instance.delete(/*'https://cors-anywhere.herokuapp.com/' + */`auth/login`);     
+            }
 }
