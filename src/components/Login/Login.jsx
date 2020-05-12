@@ -18,7 +18,6 @@ const LoginForm = (props)=>{
             </div>
             <div>
                 <Field type={"checkbox"}  name={"rememberMe"}  component={Input}/>Remember me
-                
             </div>
             <div>
                 <button>Login</button>
