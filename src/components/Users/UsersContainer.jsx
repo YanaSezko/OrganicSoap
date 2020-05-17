@@ -33,6 +33,7 @@ class UsersContainer extends React.Component {
                    unfollow={this.props.unfollow}
                    onPageChanged={this.onPageChanged}
                    followingInProgress={this.props.followingInProgress}
+                  
             />
         </>
     }
