@@ -13,7 +13,7 @@ activateEditMode = () => {
         editMode:true
     }); 
 }
-deActivateEditMode=()=>{
+deActivateEditMode = () => {
     this.setState({
         editMode:false
     }); 

@@ -4,10 +4,11 @@ import Post from './Post/Post';
 import { reduxForm, Field } from 'redux-form';
 import { required, maxLengthCreator } from '../../../utils/validators/validators';
 import { Textarea } from '../../common/FormControls/FormsControls';
+import ProfileStatusWithHooks from '../ProfileInfo/ProfileStatusWithHooks';
 
 
-const MyPosts = (props) => {
-    let postsElement = props.posts.map(p => <Post message={p.message} id={p.id} likesCount={p.likesCount}/>);
+const MyPosts = React.memo(props => {
+    let postsElement = [...props.posts].map(p => <Post message={p.message} id={p.id} likesCount={p.likesCount}/>);
 
     let newPostEl = React.createRef();
 
@@ -24,20 +25,23 @@ const MyPosts = (props) => {
             {postsElement}
         </ul>
     </section>
-}
+});
 
 const maxLength10=maxLengthCreator(10);
 
 const AddNewPostForm=(props)=>{
     return(
+        <>
         <form onSubmit={props.handleSubmit} className={s.addPost}>
             <Field component={Textarea} name="newPostText" validate={[required, maxLength10]} placeholder={"Post message"}></Field>
             <button>Add new post</button>
         </form>
+        <ProfileStatusWithHooks status={props.status} updateStatus={props.updateStatus}/>
+        </>
     )
 }
 
-let AddNewPostFormRedux=reduxForm({
+let AddNewPostFormRedux = reduxForm({
     form:"ProfileAddNewPostForm"
 })(AddNewPostForm)
 

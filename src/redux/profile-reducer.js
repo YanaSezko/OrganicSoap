@@ -2,7 +2,6 @@ import {usersAPI,profileAPI} from "../api/api";
 
 
 const ADD_POST = 'ADD-POST';
-
 const SET_USER_PROFILE = 'SET_USER_PROFILE';
 const SET_STATUS = 'SET_STATUS';
 
@@ -29,19 +28,19 @@ const profileReducer = (state = initialState, action) => {
                 newPostText : ''
             };
         }
-                
-        case 'SET_USER_PROFILE': {
-           return  {
-               ...state,
-               profile: action.profile
-           };
-        }
         case 'SET_STATUS': {
             return  {
                 ...state,
                 status: action.status
             };
          }
+        
+         case 'SET_USER_PROFILE': {
+            return  {
+                ...state,
+                profile: action.profile
+            };
+         } 
         default:
             return state;
     }
@@ -63,7 +62,7 @@ export const getStatus = (userId) =>(dispatch)=>{
     });
 }
 
-export const updateStatus = (status) =>(dispatch)=>{
+export const updateStatus = (status) => (dispatch)=>{
     profileAPI.updateStatus(status)
     .then(response => {
         if (response.data.resultCode === 0){
@@ -71,6 +70,8 @@ export const updateStatus = (status) =>(dispatch)=>{
         }
     });
 }
+
+
 
 
 export default profileReducer;
