@@ -12,22 +12,17 @@ import { compose } from 'redux';
 import { connect } from 'react-redux';
 import Preloader from './components/common/Preloader/Preloader';
 
-
-
-
-
 class App extends Component {
     componentDidMount() {
         this.props.initializeApp();
     }
 
-    render() {
-if (!this.props.initialized){
-    return<Preloader/>  
-}
-   
+render() {
+    if (!this.props.initialized){
+    return <Preloader/>  
+    }
 
-     return (
+    return (
         <div className="app-wrapper">
             <HeaderContainer/>
             <Navbar/>

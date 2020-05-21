@@ -36,7 +36,6 @@ const AddNewPostForm=(props)=>{
             <Field component={Textarea} name="newPostText" validate={[required, maxLength10]} placeholder={"Post message"}></Field>
             <button>Add new post</button>
         </form>
-        <ProfileStatusWithHooks status={props.status} updateStatus={props.updateStatus}/>
         </>
     )
 }

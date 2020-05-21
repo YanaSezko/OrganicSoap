@@ -1,8 +1,17 @@
 import profileReducer from "./profile-reducer";
 import dialogsReducer from "./dialogs-reducer";
+import sidebarReducer from "./sidebar-reducer";
 
 let store = {
     _state: {
+        profilePage: {
+            posts: [
+                {id: 1, message: 'это мой первый пост', likesCount: 20},
+                {id: 2, message: 'это мой второй пост', likesCount: 33}
+            ],
+            newPostText: 'natural-soap',
+
+        },
         dialogsPage: {
             messages: [
                 {id: 1, message: 'Hi'},
@@ -18,14 +27,7 @@ let store = {
             ],
             newMessageBody:""
         },
-        profilePage: {
-            posts: [
-                {id: 1, message: 'это мой первый пост', likesCount: 20},
-                {id: 2, message: 'это мой второй пост', likesCount: 33}
-            ],
-            newPostText: 'natural-soap',
-
-        }
+        sidebar: []
     },
     _callSubscriber() {
         console.log('State chenged');
@@ -41,6 +43,7 @@ let store = {
     dispatch(action) {
         this._state.profilePage= profileReducer(this._state.profilePage, action);
         this._state.dialogsPage = dialogsReducer(this._state.dialogsPage, action);
+        this._state.sidebar = sidebarReducer(this._state.sidebar, action);
 
         this._callSubscriber(this._state);
     }

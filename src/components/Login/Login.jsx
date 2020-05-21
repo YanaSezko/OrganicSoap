@@ -1,42 +1,27 @@
 import React from 'react';
 import { reduxForm, Field } from 'redux-form';
-import { Input } from '../common/FormControls/FormsControls';
+import { Input, createField } from '../common/FormControls/FormsControls';
 import { required } from '../../utils/validators/validators';
 import { connect } from 'react-redux';
 import { login } from '../../redux/auth-reducer';
 import { Redirect } from 'react-router-dom';
 import s from "./../common/FormControls/FormsControls.module.css" 
 
-const LoginForm = (props)=>{
-    return <>
-        <form  onSubmit={props.handleSubmit}>
-            <div>
-                <Field placeholder={"Email"} name={"email"} component={Input}
-                validate={[required]}
-                />
-            </div>
-            <div>
-                <Field placeholder={"Password"} type={"password"}  name={"password"} component={Input}
-                validate={[required]}
-                />
-            </div>
-            <div>
-                <Field type={"checkbox"}  name={"rememberMe"}  component={Input}/>Remember me
-            </div>
-            {props.error && <div className={s.formError} >
-                {props.error}</div>
-                }
+const LoginForm = ({handleSubmit, error})=>{
+    return (
+        <form  onSubmit={handleSubmit}>
+        {createField("Email","email",[required], Input)}
+        {createField("Password","password",[required], Input,{type:"password"})}      
+        {createField(null,"rememberMe",[], Input,{type:"checkbox"}, "remember me")}     
+        {error && <div className={s.formError}>{error}</div>}
              <div>
                 <button>Login</button>
             </div>
         </form>
-    </>
+    )
 }
 
-const LoginReduxForm = reduxForm({
-    // a unique name for the form
-    form: 'login'
-  })(LoginForm)
+const LoginReduxForm = reduxForm({form: 'login'})(LoginForm)
 
 const Login = (props)=>{
 const onSubmit = (formData)=>{
@@ -46,7 +31,6 @@ const onSubmit = (formData)=>{
 if (props.isAuth){
     return <Redirect to={"/profile"}/>
 }
-
     return <div>
         <h1>Login</h1>
         <LoginReduxForm onSubmit={onSubmit}/>
