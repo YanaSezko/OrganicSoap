@@ -13,10 +13,11 @@ activateEditMode = () => {
         editMode:true
     }); 
 }
-deActivateEditMode = () => {
+deactivateEditMode = () => {
     this.setState({
-        editMode:false
+        editMode: false
     }); 
+    
     this.props.updateStatus(this.state.status);
 }
 onStatusChange=(e)=>{
@@ -41,10 +42,15 @@ render(){
         <div>
             {!this.state.editMode &&
                 <div>
-                    <span onDoubleClick={this.activateEditMode}>{this.props.status || "----"}</span></div>
+                    <span onDoubleClick={this.activateEditMode}>{this.props.status || "----"}</span>
+                </div>
             }
             {this.state.editMode &&
-                <div><input onChange={this.onStatusChange} autoFocus={true} onBlur={this.deActivateEditMode} value={this.state.status} /></div>
+                <div>
+                    <input onChange={this.onStatusChange} autoFocus={true} 
+                    onBlur={this.deactivateEditMode.bind(this)} 
+                    value={this.state.status} />
+                </div>
             }
         </div>
         )       

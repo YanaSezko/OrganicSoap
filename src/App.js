@@ -11,6 +11,9 @@ import Login from "./components/Login/Login";
 import { compose } from 'redux';
 import { connect } from 'react-redux';
 import Preloader from './components/common/Preloader/Preloader';
+import store from './redux/redux-store'; 
+import {BrowserRouter} from "react-router-dom";
+import {Provider} from "react-redux";
 
 class App extends Component {
     componentDidMount() {
@@ -41,6 +44,16 @@ const mapStateToProps = (state) => ({
     initialized:state.app.initialized
 })
 
-export default compose(
+let AppContainer = compose(
     withRouter,
     connect(mapStateToProps, {initializeApp}))(App);
+
+const  SoapJSApp = (props) => {
+    return <BrowserRouter>
+    <Provider store={store}>
+        <AppContainer/>
+    </Provider>
+</BrowserRouter>
+}
+
+export default SoapJSApp;

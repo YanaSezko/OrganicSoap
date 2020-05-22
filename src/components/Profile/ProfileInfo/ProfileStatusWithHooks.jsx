@@ -14,9 +14,9 @@ const activateEditMode=()=>{
     setEditMode(true);
 }
 
-const deActivateEditMode=()=>{
+const deactivateEditMode=()=>{
     setEditMode(false);
-   //props.updateStatus(status);
+    props.updateStatus(status);
 }
 
 const onStatusChange=(e)=>{
@@ -32,7 +32,7 @@ const onStatusChange=(e)=>{
             }
             {editMode &&
                 <div>
-                    <input onChange={onStatusChange} autoFocus={true} onBlur={deActivateEditMode}
+                    <input onChange={onStatusChange} autoFocus={true} onBlur={deactivateEditMode}
                     value = {status} />
                 </div>
             }
