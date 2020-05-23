@@ -9,7 +9,7 @@ import { compose } from 'redux';
 import { connect } from 'react-redux';
 import Preloader from './components/common/Preloader/Preloader';
 import store from './redux/redux-store'; 
-import {BrowserRouter} from "react-router-dom";
+import {HashRouter} from "react-router-dom";
 import {Provider} from "react-redux";
 import { withSuspense } from './hoc/withSuspense';
 
@@ -58,11 +58,11 @@ let AppContainer = compose(
     connect(mapStateToProps, {initializeApp}))(App);
 
 const  SoapJSApp = (props) => {
-    return <BrowserRouter>
+    return <HashRouter /* basename = {process.env.PUBLIC_URL} */>
     <Provider store={store}>
         <AppContainer/>
     </Provider>
-</BrowserRouter>
+</HashRouter>
 }
 
 export default SoapJSApp;
