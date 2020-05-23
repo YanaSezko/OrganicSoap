@@ -1,8 +1,8 @@
 {
-  "homepage": "https://yanasezko.github.io/OrganicSoap",
   "name": "soap",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://yanasezko.github.io/OrganicSoap",
   "dependencies": {
     "axios": "^0.19.1",
     "classnames": "^2.2.6",
