@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/OrganicSoap/precache-manifest.7d26f682a8ab028e40b1d8721534c160.js"
+  "/OrganicSoap/precache-manifest.4c5c466a35c83ab5e27adf05700254a6.js"
 );
 
 self.addEventListener('message', (event) => {
