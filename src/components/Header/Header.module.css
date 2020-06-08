@@ -1,4 +1,5 @@
 .header{
+  width: 100%;
   grid-area: h;
   border-bottom: 4px solid #D99F3D;
   display: flex;
