@@ -12,10 +12,11 @@ const ProfileInfo = ({profile, status, updateStatus}) => {
     }
     return (
     <div>
-        <div className={s.banner}>
+       {/*  <div className={s.banner}>
             <img width='100%' src={banner} alt={"banner"}/>
         </div>
-        <h1>100% Natural Soap</h1>
+        <h1>100% Natural Soap</h1> */}
+        
         <div>
             <img src={profile.photos.small}/>
             <ProfileStatusWithHooks status={status} updateStatus={updateStatus}/>
