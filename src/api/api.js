@@ -49,6 +49,9 @@ export const profileAPI = {
             }
 
         })
+    },
+    saveProfile(profile){
+        return instance.put(/*'https://cors-anywhere.herokuapp.com/' + */ `profile`, profile);
 
     }
 

@@ -7,7 +7,7 @@ const Profile = (props) => {
     return (
     <div>
         <iframe  className={s.vid} width="727" height="409" src="https://www.youtube.com/embed/HJeJ_1ASQYI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        <ProfileInfo savePhoto={props.savePhoto} isOwner={props.isOwner}  profile={props.profile}  status={props.status} updateStatus={props.updateStatus}/>
+        <ProfileInfo saveProfile={props.saveProfile} savePhoto={props.savePhoto} isOwner={props.isOwner}  profile={props.profile}  status={props.status} updateStatus={props.updateStatus}/>
         <MyPostsContainer/>
     </div>
     )

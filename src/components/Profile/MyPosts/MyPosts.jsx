@@ -8,7 +8,7 @@ import ProfileStatusWithHooks from '../ProfileInfo/ProfileStatusWithHooks';
 
 
 const MyPosts = React.memo(props => {
-    let postsElement = [...props.posts].map(p => <Post message={p.message} id={p.id} likesCount={p.likesCount}/>);
+    let postsElement = [...props.posts].map(p => <Post key={p.id} message={p.message} id={p.id} likesCount={p.likesCount}/>);
 
     let newPostEl = React.createRef();
 
